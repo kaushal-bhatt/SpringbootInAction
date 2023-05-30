@@ -1,11 +1,8 @@
 package com.kareem.kaushal.controller;
 
-import com.kareem.kaushal.config.AwsConfig;
 import com.kareem.kaushal.model.AroojRequest;
 import com.kareem.kaushal.model.PaytmModelResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,7 +12,6 @@ public class HomeController {
 //    ReadingListController readingListController;
     //example for conditional bean and requried false property
 
-    AwsConfig as;
 
     @GetMapping("/arooj/{kaushal}")
     public String testMethod(@PathVariable String kaushal){
@@ -25,7 +21,7 @@ public class HomeController {
     @GetMapping("/arooj")
     public String testMethod(){
         AroojRequest a = new AroojRequest();
-        a.setName(as.myconfig());
+        a.setName("kaushal");
         a.setPlace("Rishikesh");
         return a.toString();
     }
