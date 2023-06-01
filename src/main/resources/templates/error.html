@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+  <title>Oops!</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<div class="errorPage">
+  <span class="oops">Oops!</span><br/>
+  <div > <img style="width: 400px; height: 400px" src="https://png.pngtree.com/png-clipart/20200225/original/pngtree-brown-sad-dog-crying-vector-illustration-on-a-white-background-png-image_5297036.jpg" alt="https://png.pngtree.com/png-clipart/20200225/original/pngtree-brown-sad-dog-crying-vector-illustration-on-a-white-background-png-image_5297036.jpg">
+  </div>
+  <p>There seems to be a problem with the page you requested
+    (<!--/*@thymesVar id="path" type="images"*/-->
+    <span th:text="${path}"></span>).</p>
+  <p th:text="${'Details: ' + message}"></p>
+</div>

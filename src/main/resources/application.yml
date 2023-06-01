@@ -1,18 +1,28 @@
 server:
-  port:  8082
-
-spring:
-  h2:
-    console.enabled: true
-  datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
-    password: kaushal
-    driverClassName: org.h2.Driver
-  jpa:
-    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
-
-
+  port: 8082
 
 home:
   isAvailable: true
+#---
+#spring:
+#  profiles:
+#    active: test
+#
+#logging:
+#  path: /var/log/
+#  file: Kaushal.log
+#  level:
+#    root: ERROR
+#---
+#
+#
+#spring:
+#  profiles:
+#    active: dev
+#
+#
+#logging:
+#  path: /var/log/
+#  file: Kaushal.log
+#  level:
+#    root: INFO
