@@ -1,6 +1,7 @@
 package com.kareem.kaushal.controller;
 import com.kareem.kaushal.model.Book;
 import com.kareem.kaushal.repo.ReadingListRepository;
+import com.kareem.kaushal.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.stereotype.Controller;
@@ -16,20 +17,16 @@ import java.util.List;
 public class ReadingListController {
     private ReadingListRepository readingListRepository;
     @Autowired
+    MainService mainService;
+    @Autowired
     public ReadingListController(
             ReadingListRepository readingListRepository) {
         this.readingListRepository = readingListRepository;
     }
     @RequestMapping(value="/{reader}", method=RequestMethod.GET)
     public String readersBooks(
-            @PathVariable("reader") String reader,
-            Model model) {
-        List<Book> readingList =
-                readingListRepository.findByReader(reader);
-        if (readingList != null) {
-            model.addAttribute("books", readingList);
-        }
-        return "readingList";
+            @PathVariable("reader") String reader,Model model) {
+       return mainService.readers(reader,model);
     }
     @RequestMapping(value="/{reader}", method=RequestMethod.POST)
     public String addToReadingList(

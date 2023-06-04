@@ -3,6 +3,8 @@ package com.kareem.kaushal.controller;
 import com.kareem.kaushal.model.AroojRequest;
 import com.kareem.kaushal.model.PaytmModelResponse;
 
+import com.kareem.kaushal.service.MainService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,6 +14,8 @@ public class HomeController {
 //    ReadingListController readingListController;
     //example for conditional bean and requried false property
 
+    @Autowired
+    MainService mainService;
 
     @GetMapping("/arooj/{kaushal}")
     public String testMethod(@PathVariable String kaushal){
@@ -28,17 +32,7 @@ public class HomeController {
 
     @PostMapping("/arooj/kaushal")
     public PaytmModelResponse testMethod(@RequestBody AroojRequest kaushal){
-        PaytmModelResponse a = new PaytmModelResponse(1234124);
-        a.setCustomerName(kaushal.getName());
-        a.setAmount(1000.00);
-        a.setSuccess(kaushal.getSuccess());
-        System.out.println(a.getSuccess());
-        if(a.getSuccess().equals("OK")){
-            a.setSuccess("Apki payment agyi he");}else{
-            a.setSuccess("Apki payment nhi ayi he");
-        }
-            return a;
-
+      return  mainService.response(kaushal);
     }
 
     @PostMapping("/paytm")
