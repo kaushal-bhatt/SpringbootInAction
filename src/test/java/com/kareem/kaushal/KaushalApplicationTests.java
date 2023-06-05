@@ -2,7 +2,6 @@ package com.kareem.kaushal;
 
 import com.kareem.kaushal.model.AroojRequest;
 import com.kareem.kaushal.model.PaytmModelResponse;
-import com.kareem.kaushal.repo.ReadingListRepository;
 import com.kareem.kaushal.service.MainService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +29,11 @@ class KaushalApplicationTests {
 		a.setPlace("Rishikesh");
 
 		PaytmModelResponse add =mainService.response(a);
+
 		assertEquals("kaushal", add.getCustomerName());
 		assertEquals("Apki payment agyi he", add.getSuccess());
 		assertEquals(1234124,add.getUpi());
 
 	}
-
-
-
 
 }

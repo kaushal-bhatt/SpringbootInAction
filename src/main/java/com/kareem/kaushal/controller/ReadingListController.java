@@ -26,6 +26,10 @@ public class ReadingListController {
     @RequestMapping(value="/{reader}", method=RequestMethod.GET)
     public String readersBooks(
             @PathVariable("reader") String reader,Model model) {
+        if (1==0) {
+            throw new ArithmeticException("kaushal ki kitab me keeda he");
+        }
+
        return mainService.readers(reader,model);
     }
     @RequestMapping(value="/{reader}", method=RequestMethod.POST)
