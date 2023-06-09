@@ -20,7 +20,9 @@ public class PaymentImpl implements MainService {
 
     @Override
     public PaytmModelResponse response(AroojRequest kaushal){
+
     PaytmModelResponse a = new PaytmModelResponse(1234124);
+        try{
         a.setCustomerName(kaushal.getName());
         a.setAmount(1000.00);
         a.setSuccess(kaushal.getSuccess());
@@ -29,6 +31,13 @@ public class PaymentImpl implements MainService {
         a.setSuccess("Apki payment agyi he");}else{
         a.setSuccess("Apki payment nhi ayi he");
     }
+
+        if(1==1){
+            throw new ArithmeticException("kaushal ki maths khrab he!!");
+        }}catch (Exception e){
+            System.out.println("exception ayi he -->"+e.getMessage());
+            e.printStackTrace();
+        }
             return a;
     }
 

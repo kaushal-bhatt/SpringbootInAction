@@ -2,21 +2,21 @@ server:
   port: 8898
 
 spring:
-  h2:
-    console.enabled: true
   datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
+    url: jdbc:mysql://localhost:3306/mydb
+    username: arooj
     password: kaushal
-    driverClassName: org.h2.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
-    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    spring.jpa.database-platform: org.hibernate.dialect.MySQL5Dialect
     open-in-view: false
-
+    hibernate:
+      ddl-auto: update
 
 
 logging:
   path: /var/log/
   file: Kaushal.log
   level:
-    root: ERROR
+    root: INFO

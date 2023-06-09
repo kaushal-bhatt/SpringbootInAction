@@ -3,10 +3,10 @@ server:
 
 home:
   isAvailable: true
-#---
-#spring:
-#  profiles:
-#    active: test
+
+spring:
+  profiles:
+    active: test
 #
 #logging:
 #  path: /var/log/

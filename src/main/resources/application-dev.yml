@@ -1,5 +1,6 @@
 
 spring:
+  application: Springboot in action
   h2:
     console.enabled: true
   datasource:
@@ -19,3 +20,22 @@ logging:
   file: Kaushal.log
   level:
     root: INFO
+
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+    info:
+      enabled: true
+  endpoints:
+    web:
+      base-path: //
+      exposure:
+        include: "*"
+
+
+endpoints:
+  shutdown:
+    enabled: true
+
